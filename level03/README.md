@@ -8,3 +8,5 @@
 - Trying to execute it being logged as level03 will execute it as flag03
 
 - Uppon execution it displays `Exploit me`
+
+- flag4level04: qi0maab88jeaj46qoumi7maus
