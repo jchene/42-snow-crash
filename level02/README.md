@@ -1,5 +1,7 @@
 # level02
 
+- We log as  `level02`
+
 - A `level02.pcap` file is located inside the home directory of level02
 
 - This is a Wireshark packet capture file
