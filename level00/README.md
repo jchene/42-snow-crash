@@ -1,19 +1,19 @@
 # level00
 
-- We found a suspicious line inside `/etc/passwd`:
+- We found a password inside `/etc/passwd`:
     >`flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash`
 
-- This `42hDRfypTqqnw` was clearly a hashed password for the user flag01, we need to break it
+- This `42hDRfypTqqnw` was clearly a hashed password for the user flag01
 
 - I know i can use `John the Ripper` to bruteforce a hashed password
 
-- Maybe `john` is already installed on the machine: I try the command `john`
+- Maybe it is already installed on the machine: I try the command `john`
 
 - The terminal responds: `-bash: /usr/sbin/john: Permission denied`
 
-- It means there something called `john` inside one of the $PATH directories
+- It means there is something called `john` inside `/usr/sbin`
 
-- We find a suspicious file (not an executable) `/usr/sbin/john`: 
+- We find a file `/usr/sbin/john`: 
     >`----r--r--  1 flag00  flag00      15 Mar  5  2016 john`
 
 - Inside this file there is `cdiiddwpgswtgt`

@@ -1,6 +1,6 @@
 # level01
 
-- In level00, we found a suspicious line inside `/etc/passwd`:
+- In level00, we found a password inside `/etc/passwd`:
     >`flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash`
 
 - This `42hDRfypTqqnw` was clearly a hashed password for the user flag01, we need to break it
@@ -15,6 +15,6 @@
 - `john` finds the password:
     >`abcdefg          (flag01)`
 
-- Password works for logging to flag01
+- Password works, we log to flag01
 
 - The flag to connect to level02 is `f2av5il02puano7naaf6adaaf`

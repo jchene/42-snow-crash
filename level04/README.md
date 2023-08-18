@@ -40,10 +40,10 @@ other::---
 	- `#!/usr/bin/perl` - This script is written in perl
 	- `use CGI qw{param};` - It is a CGI
 	- `group:www-data:r-x` - It is used by a web service
-	- `# localhost:4747` - The service is running on port `4747`
-	- `$y = $_[0];` - The script takes a single parameter
-	- `x(param("x"));` - The parameter is named `x`
-	- `print 'echo $y 2>&1';` - The parameter is run through `echo` without any parsing
+	- `x(param("x"));` - It takes a parameter `x` and pass it to the function `x`
+	- `$y = $_[0];` - It stores the parameter in `y`
+	- `print 'echo $y 2>&1';` - `y` is run through `echo` without any parsing
+	- `# localhost:4747` - The web service is running on port `4747`
 
 - This means the parameter of this CGI is probably vulnerable to command injection
 
