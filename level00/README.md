@@ -5,9 +5,9 @@
 
 - This `42hDRfypTqqnw` was clearly a hashed password for the user flag01
 
-- I know i can use `John the Ripper` to bruteforce a hashed password
+- We know we can use `John the Ripper` to bruteforce a hashed password
 
-- Maybe it is already installed on the machine: I try the command `john`
+- Maybe it is already installed on the machine: We try the command `john`
 
 - The terminal responds: `-bash: /usr/sbin/john: Permission denied`
 

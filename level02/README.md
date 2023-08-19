@@ -6,7 +6,7 @@
 
 - This is a Wireshark packet capture file
 
-- Using Kali, i download the `level02.pcap` file and open it with Wireshark
+- Using Kali, we download the `level02.pcap` file and open it with Wireshark
 
 - Some packages contains text data which seems to be user inputs: 
 	>`levelX 'enter' ft_wandr 'delete' 'delete' 'delete' NDRel 'delete' L0L 'enter'`

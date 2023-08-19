@@ -5,11 +5,11 @@
 
 - This `42hDRfypTqqnw` was clearly a hashed password for the user flag01, we need to break it
 
-- I install a new Kali VM because `john` is preinstalled on Kali
+- We install a new Kali VM because `john` is preinstalled on Kali
 
-- I connect to snow-crash through kali using ssh and download the `/etc/passwd` file.
+- We connect to snow-crash through kali using ssh and download the `/etc/passwd` file.
 
-- I run it through `john` using:
+- We run it through `john` using:
     >`john ./passwd`
 
 - `john` finds the password:
