@@ -7,17 +7,11 @@
 #!/bin/bash
 
 while true; do
-    
     touch /tmp/test
-    
     chmod 777 /tmp/test
-    
     rm /tmp/test
-    
     ln -s /home/user/level10/token /tmp/test
-    
     rm /tmp/test
-
 done
 
 runBinary.sh:
