@@ -26,7 +26,7 @@ done
 - We can see that this script execute every script present inside `/opt/openarenaserver` directory with `bash -x` and removes it after.
 
 - We can check `/opt/openarenaserver` permissions using  `ls -la /opt/openarenaserver`
-	>`drwxrwxr-x+ 2 root root 40 Aug 17 23:50 .`
+>`drwxrwxr-x+ 2 root root 40 Aug 17 23:50 .`
 
 - It has extended permissions:
 ```
@@ -48,7 +48,7 @@ default:other::r-x
 ```
 
 - We can see `level05` user (us) has all permissions on this directory so let's create a simple shell script named `pwn` inside `/opt/openarenaserver` :
-	>`echo "getflag > /tmp/pwned.txt" > /opt/openarenaserver/pwn`
+>`echo "getflag > /tmp/pwned.txt" > /opt/openarenaserver/pwn`
 
 - After 2 minutes the `/opt/openarenaserver/pwn` file dissapeared and a `/tmp/pwned.txt` file appeared
 

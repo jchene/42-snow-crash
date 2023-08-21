@@ -19,10 +19,10 @@ x(param("x"));
 - The permissions are different for each files:
 
 	`home/user/level04/level04.pl:`
-	>`-rwsr-sr-x 1 flag04 level04 152 Mar 5 2016 level04.pl`
+>`-rwsr-sr-x 1 flag04 level04 152 Mar 5 2016 level04.pl`
 
 	`var/www/level04.pl:`
-	>`-r-xr-x---+ 1 flag04 level04 152 Aug 17 22:43 level04.pl`
+>`-r-xr-x---+ 1 flag04 level04 152 Aug 17 22:43 level04.pl`
 
 - The seconf file has extended permissions:
 ```

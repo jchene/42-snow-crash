@@ -9,7 +9,7 @@
 - Using Kali, we download the `level02.pcap` file and open it with Wireshark
 
 - Some packages contains text data which seems to be user inputs: 
-	>`levelX 'enter' ft_wandr 'delete' 'delete' 'delete' NDRel 'delete' L0L 'enter'`
+>`levelX 'enter' ft_wandr 'delete' 'delete' 'delete' NDRel 'delete' L0L 'enter'`
 
 - The password would be `ft_waNDReL0L`
 

