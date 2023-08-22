@@ -51,8 +51,6 @@ end
 
 - After decryption in a SHA1 decode we have "NotSoEasy" so maybe this is not the password we look for
 
-
-
 - Upon execution with `token` as first argument and `test` as second argument, the executable prints:
 >`You don't have access to token`
 
